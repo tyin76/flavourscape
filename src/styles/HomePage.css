@@ -5,3 +5,31 @@
     width: auto;
     font-size: 26px;
 }
+
+.random-recipes-header {
+    text-align: center;
+    font-family: Merri-Bold;
+    font-weight: bold;
+    padding-top: 20px;
+    color: #081C15;
+    font-size: 30px;
+}
+
+.random-recipes {
+    opacity: 0;
+}
+
+@keyframes fadeInAndSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .random-recipes.fade-in {
+    animation: fadeInAndSlideUp 1.4s ease-in-out forwards;
+  }

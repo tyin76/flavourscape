@@ -1,17 +1,53 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from '../components/NavBar'
 import '../styles/HomePage.css'
 import { Box, Stack } from '@mui/material'
 import givingFood from '../images/givingFood.svg'
 import onlineRecipe from '../images/onlineRecipe.svg'
 import greenRecipe from '../images/greenRecipe.svg'
+import RecipeCard from '../components/RecipeCard.js'
 
 
 function HomePage() {
 
+    const [data, setData] = useState(null)
+    const [filled, setFilled] = useState(false)
+    const [isVisible, setIsVisible] = useState(false)
+
+    const apiKey = process.env.REACT_APP_API_KEY;
+
+    const url = `https://api.spoonacular.com/recipes/random?number=6&apiKey=${apiKey}`;
+
     useEffect(() => {
+        const getAPI = async () => 
+        {
+            try {
+                const response =  await fetch(url);
+                const result =  await response.json();
+                
+                setData(result)
+                setFilled(true)
+            } catch (error) {
+                console.error(error);
+            }
+
+        }
+        getAPI();
         
-    })
+    }, [])
+
+    useEffect(() => {
+        // Set a small delay to ensure the component is mounted before applying the effect
+        const timer = setTimeout(() => {
+          setIsVisible(true);
+        }, 700);
+    
+        return () => clearTimeout(timer);
+      }, []);
+
+    if (data) {
+        console.log(data);
+    }
 
   return (
    <>
@@ -54,6 +90,34 @@ function HomePage() {
 
     <div className='separator' style={{ paddingTop: '50px' }}>
     </div>
+
+    
+    
+    <div className={`random-recipes ${isVisible ? 'fade-in' : ''}`}>
+    <h3 className='random-recipes-header'>Random Recipes of the Day</h3>
+    <Stack direction='row' 
+        sx={{ 
+            justifyContent: 'center',
+            alignItems: 'center'
+        }}>
+        {filled && <RecipeCard data={data} entry={0} /> }
+        {filled && <RecipeCard data={data} entry={1} /> }
+        {filled && <RecipeCard data={data} entry={2} /> }
+    </Stack>
+
+    <Stack direction='row' 
+        sx={{ 
+            justifyContent: 'center',
+            alignItems: 'center'
+        }}>
+        {filled && <RecipeCard data={data} entry={3} /> }
+        {filled && <RecipeCard data={data} entry={4} /> }
+        {filled && <RecipeCard data={data} entry={5} /> }
+    </Stack>
+    </div>
+    
+    
+
 
 
 
