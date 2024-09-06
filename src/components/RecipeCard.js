@@ -6,7 +6,7 @@ function RecipeCard({ data, entry }) {
     <>
             <Box component={'section'}
             sx={{ p: 2, border: '1px solid grey',
-                    width:'auto',
+                    width:'25%',
                     margin: '0 auto',
                     backgroundColor: '#D8F3DC',
                     borderRadius: '1em',

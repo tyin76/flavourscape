@@ -94,11 +94,12 @@ function HomePage() {
     
     
     <div className={`random-recipes ${isVisible ? 'fade-in' : ''}`}>
-    <h3 className='random-recipes-header'>Random Recipes of the Day</h3>
+    <h3 className='random-recipes-header'>Random Recipes</h3>
     <Stack direction='row' 
         sx={{ 
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            width: '100%'
         }}>
         {filled && <RecipeCard data={data} entry={0} /> }
         {filled && <RecipeCard data={data} entry={1} /> }
@@ -108,7 +109,8 @@ function HomePage() {
     <Stack direction='row' 
         sx={{ 
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            width: '100%'
         }}>
         {filled && <RecipeCard data={data} entry={3} /> }
         {filled && <RecipeCard data={data} entry={4} /> }
