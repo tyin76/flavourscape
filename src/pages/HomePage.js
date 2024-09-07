@@ -7,6 +7,13 @@ import onlineRecipe from '../images/onlineRecipe.svg'
 import greenRecipe from '../images/greenRecipe.svg'
 import RecipeCard from '../components/RecipeCard.js'
 
+// mui imports
+import Accordion from '@mui/material/Accordion';
+import AccordionActions from '@mui/material/AccordionActions';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Button from '@mui/material/Button';
+
 
 function HomePage() {
 
@@ -16,7 +23,7 @@ function HomePage() {
 
     const apiKey = process.env.REACT_APP_API_KEY;
 
-    const url = `https://api.spoonacular.com/recipes/random?number=6&apiKey=${apiKey}`;
+    const url = `https://api.spoonacular.com/recipes/random?number=6&includeNutrition=true&apiKey=${apiKey}`;
 
     useEffect(() => {
         const getAPI = async () => 
