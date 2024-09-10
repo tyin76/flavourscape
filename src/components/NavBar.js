@@ -39,8 +39,12 @@ function NavBar() {
 
     
     <div className='name-logo-div'>
+    <Link to='/'>
     <h1 className='title' style={{ fontFamily: 'Merri-Bold', color: '#081C15', fontWeight: 'Bold'}}>FlavourScape</h1>
-    <img src={logo} style={{ width: '60px' }}></img>
+    </Link>
+        <Link to='/'>
+        <img src={logo} style={{ width: '60px' }}></img>
+        </Link>
     </div>
     
     <div className='nav-stack-container'>

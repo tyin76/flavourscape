@@ -17,3 +17,8 @@
 .title {
     filter: drop-shadow(0 0 0.3rem #1B4332);
 }
+
+
+a {
+    text-decoration: none;
+}

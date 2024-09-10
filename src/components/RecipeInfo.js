@@ -49,7 +49,7 @@ function RecipeInfo() {
   // Split into sentences
   // This regex looks for a period followed by a space or end of string,
   // but not if the period is part of an ellipsis (...) or a decimal number
-  const sentences = text.split(/\.(?!\.|\d)(?=\s|$)/);
+  const sentences = text.split(/(?<=[.!?])(?:\s+|\s*(?=[A-Z]))/);
 
   // Trim whitespace, filter out empty sentences, and ensure each sentence ends with a period
   return sentences
