@@ -137,7 +137,7 @@ function RecipeInfo() {
     </div>
 
     <div className='tri-section'>
-      <h3 className='recipe-section-header' style={{ paddingLeft: '100px', paddingTop: '10px'}}>Ingredients</h3>
+      
       <Stack className='ingredient-list'
       direction='column'
       spacing={2}
@@ -145,6 +145,7 @@ function RecipeInfo() {
         fontFamily: 'Merri-Light',
         color: 'black'
       }}>
+        <h3 className='recipe-section-header' style={{ }}>Ingredients</h3>
         {recipe.nutrition.ingredients.map((entry) => {
           return (
             <li key={entry.name}>{`${entry.name} - ${entry.amount} ${entry.unit}`}</li>
@@ -152,7 +153,7 @@ function RecipeInfo() {
         })}
       </Stack>
 
-      <h3 className='recipe-section-header'>Caloric Breakdown</h3>
+      
       <Stack
       direction='column'
       spacing={2}
@@ -160,29 +161,92 @@ function RecipeInfo() {
         
       }}
       >
+        <h3 className='recipe-section-header'>Caloric Breakdown</h3>
         {Object.keys(recipe.nutrition.caloricBreakdown).map(key => {
-          return <li>{`${key}: ${recipe.nutrition.caloricBreakdown[key]}%`}</li>
+          let name ='';
+          if (key === 'percentCarbs') name = 'Carbs %'
+          if (key === 'percentFat') name = 'Fat %'
+          if (key === 'percentProtein') name = 'Protein %'
+          return <li key={key}>{`${name}: ${recipe.nutrition.caloricBreakdown[key]}%`}</li>
         })}
 
       </Stack>
+
+      <Stack
+      direction='column'
+      spacing={2}>
+      <h3 className='recipe-section-header'>Diets</h3>
+      {recipe.diets.map((entry) => {
+        return <li key={entry}>{entry}</li>
+      })}
+
+
+      </Stack>
+
+      <Stack
+      direction='column'
+      spacing={2}>
+      
+      <h3 className='recipe-section-header'>Dish Types</h3>
+      {recipe.dishTypes.map((entry) => {
+        return <li key={entry}>{entry}</li>
+      })}
+
+      </Stack>
+
+
+      <Stack
+      direction='column'
+      spacing={2}>
+
+        <h3 className='recipe-section-header'>Helpful Info</h3>
+        <li key={1}>Total Minutes Required: {recipe.readyInMinutes}</li>
+        <li key={2}>Servings: {recipe.servings}</li>
+        <li key={3}>Vegan?: {recipe.vegan ? 'Yes': 'No'}</li>
+        <li key={4}>Vegetarian?: {recipe.vegetarian ? 'Yes' : 'No'}</li>
+        <li key={5}>Weight Watcher Smart Points: {recipe.weightWatcherSmartPoints}</li>
+
+
+
+
+      </Stack>
+
+
+
       
       </div>
 
-    <div className='instructions-section'>
-      <h3 className='recipe-section-header' style={{ paddingLeft: '100px', paddingTop: '10px'}}>Instructions</h3>
+      <div className='separator' style={{ padding: '30px' }}></div>
 
-        <Stack 
+    <div className='instructions-section'>
+      <Stack
+      direction='row'
+      spacing={5}
+      sx={{
+        padding: '10px',
+        alignItems: 'center'
+      }}>
+      <Stack 
         direction='column'
         spacing={2}
         sx={{
           fontFamily: 'Merri-Light',
           color: 'black',
+          paddingTop: '30px',
+          paddingBottom: '30px',
           paddingLeft: '100px'
         }}
         >
+        <h3 className='recipe-section-header'>Instructions</h3>
         {instructionsList.map((entry) => {
           return <li key={entry}>{entry}</li>
         })}
+
+        
+        </Stack>
+        <div>
+        <img src={recipe.image} style={{ borderRadius: '2rem'}}></img>
+        </div>
         </Stack>
 
 

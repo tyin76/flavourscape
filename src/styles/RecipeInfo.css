@@ -3,7 +3,23 @@
     font-family: Merri-BoldItalic;
 }
 
-.ingredient-list {
-    padding-left: 100px;
+.tri-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding-top: 30px;
+    font-family: Merri-Light;
+    color: black;
+}
+
+.tri-section h3 {
+    text-align: center;
+}
+
+.instructions-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 

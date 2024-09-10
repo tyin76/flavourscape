@@ -85,7 +85,7 @@ function HomePage() {
                 <p>Crafting a world of taste, one recipe at a time</p>
             </div>
 
-            <img src={greenRecipe} style={{ width: '130px'}}></img>
+            <img className='home-banner-img' src={greenRecipe} style={{ width: '130px' }}></img>
            
 
         </Stack>

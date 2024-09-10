@@ -13,6 +13,7 @@
     padding-top: 20px;
     color: #081C15;
     font-size: 30px;
+    text-shadow: rgb(26, 190, 73) 3px 0 15px;
 }
 
 .random-recipes {
@@ -32,4 +33,8 @@
   
   .random-recipes.fade-in {
     animation: fadeInAndSlideUp 1.4s ease-in-out forwards;
+  }
+
+  .home-banner-img {
+    filter: drop-shadow(0 0 0.5rem #52B788);
   }
