@@ -30,6 +30,10 @@ function RecipeInfo() {
     {console.log(recipe)}
     {console.log(typeof recipeId)}
 
+    useEffect(()=> {
+      window.scroll(0,0);
+    }, [])
+
 
     function textToSentenceArray(input) {
 
